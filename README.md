@@ -5,30 +5,13 @@
 + 링크: https://dacon.io/competitions/official/235894/overview/description
 
 ----
-## Directory
-        .
-        ├── ANOMALY_DETECTION_INFERENCE.py
-        ├── ANOMALY_DETECTION_MAIN.ipynb
-        ├── ANOMALY_DETECTION_MAIN.py
-        ├── ANOMALY_DETECTION_MODEL.py
-        ├── ANOMALY_DETECTION_UTILS.py
-        ├── RESULTS
-        └── open
-            ├── sample_submission.csv
-            ├── test
-            ├── test_df.csv
-            ├── train
-            └── train_df.csv
 
-        4 directories, 8 files
-
-----
 ## Summary
 + Augmentation      
     + 기본적으로 Albumentation 사용
     + Sobel filter를 이용한 증강을 추가(다른 filter 및 LBP 등등 사용해봤는데, Sobel filter가 가장 성능이 잘 나왔습니다)      
-    + Train, Test 시에도 augmentation 수행      
-   
+    + Train, Test 시에도 augmentation 수행     
+
 </br>
 
 + Train     
@@ -51,6 +34,23 @@
         -> tta.VerticalFlip()       
         -> tta.Rotate90(angles=[0, 90, 180, 270])    
 
+----
+## Directory
+        .
+        ├── ANOMALY_DETECTION_INFERENCE.py
+        ├── ANOMALY_DETECTION_MAIN.ipynb
+        ├── ANOMALY_DETECTION_MAIN.py
+        ├── ANOMALY_DETECTION_MODEL.py
+        ├── ANOMALY_DETECTION_UTILS.py
+        ├── RESULTS
+        └── open
+            ├── sample_submission.csv
+            ├── test
+            ├── test_df.csv
+            ├── train
+            └── train_df.csv
+
+        4 directories, 8 files
 ---- 
 ## Environment 
 + (cuda10.2, cudnn7, ubuntu18.04), (cuda11.2.0, cudnn8, ubuntu18.04)
@@ -151,3 +151,34 @@ Result:
       Loaded pretrained weights for efficientnet-b7
       Loaded pretrained weights for efficientnet-b7
       100%|███████████████████████████████████████████| 68/68 [30:08<00:00, 26.59s/it]
+      
+      
+### Terminal Command Example for inference(blending)
+```
+!python3 ANOMALY_DETECTION_INFERENCE.py \
+--model_save_name \
+'A_220510_0142(efficientnet_b7_32_True__AdamW_0.0002_15_CosineAnnealingWarmUpRestarts_0.524_CE_with_Lb_10_0.002157_0.8283)_fold_' \
+'A_220511_2011(efficientnet_b7_32_True__AdamW_0.00015_15_CosineAnnealingWarmUpRestarts_0.524_CE_with_Lb_10_0.002157_0.8283)_fold_' \
+--batch_size 32 \
+--pretrain True \
+--tta True \
+--save_name 'b7(2e-4+1.5e-4)_blending'
+```
+
+
+Result: 
+
+      Device: cuda
+      GPU activate --> Count of using GPUs: 4
+      100%|███████████████████████████████████████| 2154/2154 [00:47<00:00, 44.95it/s]
+      Loaded pretrained weights for efficientnet-b7
+      Loaded pretrained weights for efficientnet-b7
+      Loaded pretrained weights for efficientnet-b7
+      Loaded pretrained weights for efficientnet-b7
+      Loaded pretrained weights for efficientnet-b7
+      Loaded pretrained weights for efficientnet-b7
+      Loaded pretrained weights for efficientnet-b7
+      Loaded pretrained weights for efficientnet-b7
+      Loaded pretrained weights for efficientnet-b7
+      Loaded pretrained weights for efficientnet-b7
+      100%|███████████████████████████████████████████| 68/68 [56:58<00:00, 50.27s/it]
