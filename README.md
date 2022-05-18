@@ -9,8 +9,11 @@
 ## Summary
 + Augmentation      
     + 기본적으로 Albumentation 사용
-    + Sobel filter를 이용한 증강을 추가(다른 filter 및 LBP 등등 사용해봤는데, Sobel filter가 가장 성능이 잘 나왔습니다)      
+    + Sobel filter를 이용한 증강을 추가(filter를 이용하여 edge를 추출 후 unsharp image와 합친 이미지를 만들어 사용)
+        + 여러 filter 및 LBP 를 이용한 augmentation을 시도했는데, 결과적으로 Sobel filter를 이용한 경우 가장 높은 성능이 나왔습니다.
     + Train, Test 시에도 augmentation 수행     
+        + (train 시 Sharpen, HueSaturationValue, FancyPCA, Emboss을 통해 이미지를 선명하게 만든 후 다른 aumgmentation을 수행)    
+        + (test 시 Sharpen, HueSaturationValue, FancyPCA, Emboss만 수행)    
 
 </br>
 
