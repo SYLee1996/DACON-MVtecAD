@@ -133,52 +133,23 @@ Result:
 !python3 ANOMALY_DETECTION_INFERENCE.py \
 --model_save_name \
 'A_220510_0142(efficientnet_b7_32_True__AdamW_0.0002_15_CosineAnnealingWarmUpRestarts_0.524_CE_with_Lb_10_0.002157_0.8283)_fold_' \
+--model 'efficientnet_b7' \
 --batch_size 32 \
 --pretrain True \
 --tta True \
 --save_name 'A_220510_0142_fold_'
 ```
 
-
-Result: 
-
-      Device: cuda
-      GPU activate --> Count of using GPUs: 4
-      100%|███████████████████████████████████████| 2154/2154 [00:49<00:00, 43.19it/s]
-      Loaded pretrained weights for efficientnet-b7
-      Loaded pretrained weights for efficientnet-b7
-      Loaded pretrained weights for efficientnet-b7
-      Loaded pretrained weights for efficientnet-b7
-      Loaded pretrained weights for efficientnet-b7
-      100%|███████████████████████████████████████████| 68/68 [30:08<00:00, 26.59s/it]
-      
-      
 ### Terminal Command Example for inference(blending)
 ```
 !python3 ANOMALY_DETECTION_INFERENCE.py \
 --model_save_name \
 'A_220510_0142(efficientnet_b7_32_True__AdamW_0.0002_15_CosineAnnealingWarmUpRestarts_0.524_CE_with_Lb_10_0.002157_0.8283)_fold_' \
 'A_220511_2011(efficientnet_b7_32_True__AdamW_0.00015_15_CosineAnnealingWarmUpRestarts_0.524_CE_with_Lb_10_0.002157_0.8283)_fold_' \
+--model 'efficientnet_b7' \
 --batch_size 32 \
 --pretrain True \
 --tta True \
 --save_name 'b7(2e-4+1.5e-4)_blending'
 ```
 
-
-Result: 
-
-      Device: cuda
-      GPU activate --> Count of using GPUs: 4
-      100%|███████████████████████████████████████| 2154/2154 [00:47<00:00, 44.95it/s]
-      Loaded pretrained weights for efficientnet-b7
-      Loaded pretrained weights for efficientnet-b7
-      Loaded pretrained weights for efficientnet-b7
-      Loaded pretrained weights for efficientnet-b7
-      Loaded pretrained weights for efficientnet-b7
-      Loaded pretrained weights for efficientnet-b7
-      Loaded pretrained weights for efficientnet-b7
-      Loaded pretrained weights for efficientnet-b7
-      Loaded pretrained weights for efficientnet-b7
-      Loaded pretrained weights for efficientnet-b7
-      100%|███████████████████████████████████████████| 68/68 [56:58<00:00, 50.27s/it]
