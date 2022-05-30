@@ -1,6 +1,6 @@
 # DACON-MVtecAD
 
-## Private 6th | 0.89246 | EfficientNet-b7 & blending
+## Final 5th | 0.89246 | EfficientNet-b7 & blending
 + 주최 및 주관: 데이콘 
 + 링크: https://dacon.io/competitions/official/235894/overview/description
 
