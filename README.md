@@ -159,6 +159,4 @@ Result:
 ## 개선할 점
 
 + GAN 또는 타 방법을 통한 minority class에 대한 임의의 이상데이터 생성 등 고려 가능
-
-+ py 파일을 이용하는 경우, 'ANOMALY_DETECTION_MAIN.py' 파일을 실행시키면 학습이 진행됩니다.타
-+ py 파일을 이용하는 경우, 'ANOMALY_DETECTION_MAIN.py' 파일을 실행시키면 학습이 진행됩니다.
++ 사후 분석 및 후처리 여부 고려
